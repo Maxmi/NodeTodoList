@@ -1,10 +1,32 @@
-const fs = require('fs');
+const helpers = require('./helpers');
 
-//do we need to have another property - status?
-//so when we complete the task it gets marked?
-//how do we mark them? do we need to remove them?
+var completeTask = (id, allTasks) => {
+  var currentTask = {};
+  var isCompleted = false;
 
-module.exports = (taskID) => {
+  allTasks.forEach(task => {
+    if (task.id === parseInt(id, 10)) {
+      if(task.isComplete) {
+        isCompleted = true;
+        return;
+      }
+      currentTask = task;
+      task.isComplete = true;
+    }
+  });
 
-  console.log('Completed task ' + taskID + ': ');
-}
+  if(isCompleted) {
+    // console.log ('This task already completed');
+    return 'This task already completed';
+  } else if(!isCompleted && currentTask.id) {
+    helpers.saveTasks(allTasks);
+    // console.log (`Completed task ${currentTask.id}: ${currentTask.desc}`);
+    return `Completed task ${currentTask.id}: ${currentTask.desc}`;
+  } else {
+    // console.log(`Task id ${id} not found`);
+    return `Task id ${id} not found`;
+  }
+
+};
+
+module.exports = completeTask;

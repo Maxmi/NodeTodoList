@@ -1,35 +1,31 @@
 #!/usr/bin/env node
 
+const fs = require('fs');
 const addTask = require('./commands/add.js');
-const listTasks = require('./commands/list.js');
+const deleteTask = require('./commands/delete.js');
+const {list} = require('./commands/list.js'); //why did i put it in {}?
 const completeTask = require('./commands/complete.js');
-const deleteTask = require('./commands/delete.js');//why delete wasn't working?
+const helpers = require('./commands/helpers.js');
 
-const command = process.argv[2];
-const param = process.argv[3];
+var command = process.argv[2];
+var task = id = process.argv[3];
+var allTasks = helpers.getAll();
 
-// var tasksArr = [];
-// var taskObj = {}; //{"id": 1, "description": "buy milk"}
-//
-
+var result;
 switch (command) {
-  case 'list':
-    listTasks();
-    break;
-
   case 'add':
-    addTask(param);
+    result = addTask(task, allTasks);
     break;
-
+  case 'list':
+    result = list(allTasks);
+    break;
   case 'complete':
-    completeTask(param);
+    result = completeTask(id, allTasks);
     break;
-
   case 'delete':
-    deleteTask(param);
+    result = deleteTask(id, allTasks);
     break;
-
   default:
-    console.log('Command not recognized');
-
+    result = 'Command not recognized';
 }
+console.log(result);
