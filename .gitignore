@@ -61,5 +61,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# json file
+tasks.json
+
 
 # End of https://www.gitignore.io/api/node
