@@ -4,7 +4,8 @@ const add = require('../commands/add');
 describe('addTask', function() {
   let testData = [{
     id: 1,
-    desc: 'test'
+    desc: 'test',
+    isComplete: false
   }];
 
   it('should give unique ID to each new task', function() {

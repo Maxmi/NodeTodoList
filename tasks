@@ -1,9 +1,7 @@
 #!/usr/bin/env node
-
-// const fs = require('fs');
 const addTask = require('./commands/add.js');
 const deleteTask = require('./commands/delete.js');
-const { list } = require('./commands/list.js'); // why did i put it in {}?
+const { list } = require('./commands/list.js');
 const completeTask = require('./commands/complete.js');
 const helpers = require('./commands/helpers.js');
 

@@ -4,21 +4,12 @@ const complete = require('../commands/complete');
 describe('completeTask', function() {
   let testData = [{
     id: 1,
-    desc: 'buy milk',
+    desc: 'buy eggs',
     isComplete: false
   }];
-
-  // it('should change isComplete value from false to true', function() {
-  //   var expected = [{
-  //     id: 1,
-  //     desc: 'buy milk',
-  //     isComplete: true
-  //   }];
-  //   expect(complete(1, testData)).to.equal(expected);
-  //   console.log(testData);
-
+  
   it('should print success message after completing task', function() {
-    let expected = 'Completed task 1: buy milk';
+    let expected = 'Completed task 1: buy eggs';
     expect(complete(1, testData)).to.equal(expected);
   });
 

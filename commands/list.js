@@ -1,4 +1,4 @@
-// const helpers = require('./helpers.js');
+const helpers = require('./helpers.js');
 
 let list = (allTasks) => {
   const filtered = allTasks.filter(task => !task.isComplete && task.id !== 0);
@@ -13,5 +13,3 @@ let render = (filtered) => {
 };
 
 module.exports = { list, render };
-
-// { list: list, render:render };
