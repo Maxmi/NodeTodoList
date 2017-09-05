@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
+// const fs = require('fs');
 const addTask = require('./commands/add.js');
 const deleteTask = require('./commands/delete.js');
-const {list} = require('./commands/list.js'); //why did i put it in {}?
+const { list } = require('./commands/list.js'); // why did i put it in {}?
 const completeTask = require('./commands/complete.js');
 const helpers = require('./commands/helpers.js');
 
-var command = process.argv[2];
-var task = id = process.argv[3];
-var allTasks = helpers.getAll();
+const command = process.argv[2];
+const task = process.argv[3];
+const id = process.argv[3];
+const allTasks = helpers.getAll();
 
-var result;
+let result;
 switch (command) {
   case 'add':
     result = addTask(task, allTasks);

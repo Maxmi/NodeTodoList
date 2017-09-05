@@ -1,8 +1,8 @@
 const helpers = require('./helpers');
 
-var completeTask = (id, allTasks) => {
-  var currentTask = {};
-  var isCompleted = false;
+const completeTask = (id, allTasks) => {
+  let currentTask = {};
+  let isCompleted = false;
 
   allTasks.forEach(task => {
     if (task.id === parseInt(id, 10)) {
@@ -26,7 +26,6 @@ var completeTask = (id, allTasks) => {
     // console.log(`Task id ${id} not found`);
     return `Task id ${id} not found`;
   }
-
 };
 
 module.exports = completeTask;

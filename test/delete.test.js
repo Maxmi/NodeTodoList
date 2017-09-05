@@ -1,8 +1,8 @@
-var expect = require('chai').expect;
-var del = require('../commands/delete');
+const expect = require('chai').expect;
+const del = require('../commands/delete');
 
 describe('deleteTask', function() {
-  var testData = [{
+  let testData = [{
     id: 1,
     desc: 'test'
   }];
@@ -12,12 +12,12 @@ describe('deleteTask', function() {
   // });
 
   it('should print success message after deleting task', function() {
-    var expected = 'Deleted task 1: test';
+    let expected = 'Deleted task 1: test';
     expect(del(1,testData)).to.equal(expected);
   });
 
   it('should print info message if task id not found', function() {
-  var expected = `Can not remove this task, id 34 not found`;
+  let expected = `Can not remove this task, id 34 not found`;
     expect(del(34, testData)).to.equal(expected);
   });
 
